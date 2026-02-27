@@ -1,5 +1,8 @@
-# EXPERIMENT-07-INTERFACING-CAMERA-MODULE-ON-EDGE-COMPUTER-FOR-OCCUPANCY-DETECTION-
-
+# EXPERIMENT-06-INTERFACING-CAMERA-MODULE-ON-EDGE-COMPUTER-FOR-OCCUPANCY-DETECTION-
+## NAME: THEJASWINI D
+## REGISTER NUMBER: 212223110059
+## DEPARTMENT: B.E.CSE(IOT)
+## DATE: 25.02.2026
 
 ### AIM:
 To interface a USB/CSI camera module with an edge computing platform (e.g., Raspberry Pi, Jetson Nano, etc.) and implement an occupancy detection system using the Histogram of Oriented Gradients (HOG) algorithm.
@@ -91,14 +94,7 @@ cv2.destroyAllWindows()
 
 ### SCREEN SHOTS OF OUTPUT 
 
-
-
-
-
-### RASPI INTERFACE 
-
-
-
+![Uploading WhatsApp Image 2026-02-27 at 1.17.47 PM.jpeg…]()
 
 ### Result:
 Occupancy detection using the HOG algorithm was successfully implemented. The system was able to identify and highlight human presence in real-time video streams.
