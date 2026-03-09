@@ -91,10 +91,56 @@ while True:
 cap.release()
 cv2.destroyAllWindows()
 
+### PROGRAM:
+```
+import cv2
+import imutils
 
+# DroidCam URL
+url = "http://172.17.100.156:4747/video"
+
+# Initialize video capture from DroidCam stream
+cap = cv2.VideoCapture(url)
+
+# Initialize HOG descriptor for person detection
+hog = cv2.HOGDescriptor()
+hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
+
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        print("Failed to grab frame")
+        break
+
+    # Resize frame for faster processing
+    frame = imutils.resize(frame, width=640)
+
+    # Detect people
+    rects, weights = hog.detectMultiScale(
+        frame,
+        winStride=(4, 4),
+        padding=(8, 8),
+        scale=1.05
+    )
+
+    # Draw bounding boxes
+    for (x, y, w, h) in rects:
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+
+    # Display results
+    cv2.imshow("Occupancy Detection", frame)
+
+    # Exit on 'q'
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
+```
 ### SCREEN SHOTS OF OUTPUT 
 
-![Uploading WhatsApp Image 2026-02-27 at 1.17.47 PM.jpeg…]()
+![WhatsApp Image 2026-02-27 at 1 17 47 PM](https://github.com/user-attachments/assets/3620ce37-6d3c-43bd-b281-f996cf65f9bf)
+
 
 ### Result:
 Occupancy detection using the HOG algorithm was successfully implemented. The system was able to identify and highlight human presence in real-time video streams.
